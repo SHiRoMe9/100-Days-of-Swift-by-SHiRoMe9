@@ -32,16 +32,16 @@ class FoodListController: UITableViewController {
 
         
         // Create a UIRefreshControl if needed
-        if self.refreshControl == nil {
-            self.refreshControl = UIRefreshControl()
-        }
+//        if self.refreshControl == nil {
+//            self.refreshControl = UIRefreshControl()
+//        }
+//        
         
-        
-        self.refreshControl?.addTarget(
-            self,
-            action: #selector(swipeRefresh(refreshControl: )),
-            for: .valueChanged
-        )
+//        self.refreshControl?.addTarget(
+//            self,
+//            action: #selector(swipeRefresh(refreshControl: )),
+//            for: .valueChanged
+//        )
         
         
         
@@ -106,8 +106,14 @@ class FoodListController: UITableViewController {
         }
     }
     
-    
 
+    
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        let newList = list[fromIndexPath.row]
+        list.remove(at: fromIndexPath.row)
+        list.insert(newList, at: to.row)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
