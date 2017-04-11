@@ -138,17 +138,19 @@ class FoodListController: UITableViewController {
 
     }
     
+   
     
-    func addNewFood () {
-        performSegue(withIdentifier: "New Food", sender: nil)
-    }
-    
-    
-    
+    // the meth to implementat section Indext Title very useful!
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return listIndex
     }
     
+    
+    
+    
+    func addNewFood () {
+        performSegue(withIdentifier: "New Food", sender: nil)
+    }
     
     func updateList (name: String) {
         
